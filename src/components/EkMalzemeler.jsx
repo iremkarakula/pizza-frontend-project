@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './EkMalzemeler.css'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 
-const ekMalzemeler = ["Pepperoni", "Sosis", "Kanada Jambonu", "Tavuk Izgara", "Soğan", "Domates", "Mısır", "Sucuk", "Jalepeno", "Sarımsak", "Biber", "Sucuk", "Ananas", "Kabak"]
+const ekMalzemeler = ["Pepperoni", "Sosis", "Kanada Jambonu", "Tavuk Izgara", "Soğan", "Domates", "Mısır", "Sucuk", "Jalepeno", "Sarımsak", "Biber", "Mantar", "Ananas", "Kabak"]
 
 function EkMalzemeler({ onMalzemeChange }) {
     const [selectedMalzemeler, setSelectedMalzemeler] = useState([]);

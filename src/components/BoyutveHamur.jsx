@@ -5,10 +5,9 @@ import './BoyutveHamur.css'
 
 
 export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
-    const [selectedSize, setSelectedSize] = useState('');
+
 
     const handleSizeChange = (event) => {
-        setSelectedSize(event.target.value);
         onSizeChange(event.target.value);
     }
 
@@ -28,7 +27,6 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
                     name="boyut"
                     type="radio"
                     value="küçük"
-                    checked={selectedSize === "küçük"}
                     onChange={handleSizeChange}
                 />
                 <Label check for="radio1">
@@ -41,7 +39,6 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
                     name="boyut"
                     type="radio"
                     value="orta"
-                    checked={selectedSize === "büyük"}
                     onChange={handleSizeChange}
                 />
                 <Label check for="radio2">
@@ -54,7 +51,6 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
                     name="boyut"
                     type="radio"
                     value="büyük"
-                    checked={selectedSize === "büyük"}
                     onChange={handleSizeChange}
                 />
                 <Label check for="radio3">

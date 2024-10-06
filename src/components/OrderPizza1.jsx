@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './OrderPizza.css'
 
 import BoyutveHamur from './BoyutveHamur'
@@ -17,6 +17,10 @@ const initialValue = {
 function OrderPizza1() {
     const [dataList, setDataList] = useState([]);
     const [data, setData] = useState(initialValue);
+    const [totalAmount, setTotalAmount] = useState(0);
+    const [counter, setCounter] = useState(1);
+    const [extra, setExtra] = useState(0);
+
 
 
 
@@ -51,6 +55,13 @@ function OrderPizza1() {
 
     }
 
+
+    const isButtonDisabled = data.isim.trim().length < 4 || !data.boyut || !data.hamur || data.malzemeler.length < 4;
+
+    useEffect(() => {
+        setTotalAmount((5 * data.malzemeler.length + 85.50) * counter);
+        setExtra(data.malzemeler.length * 5);
+    }, [data.malzemeler, counter])
 
 
     return (
@@ -110,7 +121,7 @@ function OrderPizza1() {
                     />
                 </FormGroup>
             </Form>
-            <SiparisOzet dataList={dataList} onSubmit={handleSubmit} />
+            <SiparisOzet onSubmit={handleSubmit} isButtonDisabled={isButtonDisabled} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} />
 
 
 
