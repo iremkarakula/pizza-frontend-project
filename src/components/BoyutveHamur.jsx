@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 import './BoyutveHamur.css'
 
-export default function BoyutveHamur() {
+
+
+export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
+    const [selectedSize, setSelectedSize] = useState('');
+
+    const handleSizeChange = (event) => {
+        setSelectedSize(event.target.value);
+        onSizeChange(event.target.value);
+    }
+
+    const handleHamurChange = (event) => {
+        onHamurChange(event.target.value);
+    }
+
+
     return (
         <div className='boyutvehamur'><Form className='boyut'>
             <legend className='boyut-legend'>
@@ -11,8 +25,11 @@ export default function BoyutveHamur() {
             <FormGroup check className='formgroup-radio'>
                 <Input
                     id="radio1"
-                    name="radio1"
+                    name="boyut"
                     type="radio"
+                    value="küçük"
+                    checked={selectedSize === "küçük"}
+                    onChange={handleSizeChange}
                 />
                 <Label check for="radio1">
                     Küçük
@@ -21,8 +38,11 @@ export default function BoyutveHamur() {
             <FormGroup check className='formgroup-radio'>
                 <Input
                     id="radio2"
-                    name="radio2"
+                    name="boyut"
                     type="radio"
+                    value="orta"
+                    checked={selectedSize === "büyük"}
+                    onChange={handleSizeChange}
                 />
                 <Label check for="radio2">
                     Orta
@@ -31,8 +51,11 @@ export default function BoyutveHamur() {
             <FormGroup check className='formgroup-radio'>
                 <Input
                     id="radio3"
-                    name="radio3"
+                    name="boyut"
                     type="radio"
+                    value="büyük"
+                    checked={selectedSize === "büyük"}
+                    onChange={handleSizeChange}
                 />
                 <Label check for="radio3">
                     Büyük
@@ -48,17 +71,18 @@ export default function BoyutveHamur() {
                         id="exampleSelect"
                         name="select"
                         type="select"
+                        onChange={handleHamurChange}
                     >
                         <option hidden>
                             Hamur Kalınlığı
                         </option>
-                        <option>
+                        <option value="kalın">
                             Kalın
                         </option>
-                        <option>
+                        <option value="orta">
                             Orta
                         </option>
-                        <option>
+                        <option value="ince">
                             İnce
                         </option>
 

@@ -1,0 +1,27 @@
+.success {
+    background-color: var(--kirmizi);
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: var(--bej);
+}
+
+.success-h1 {
+    font-family: "Quattrocento", serif;
+    padding: 3rem 0;
+    font-size: 3rem;
+
+
+}
+
+.success-h2 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 70px;
+    font-weight: 300;
+    line-height: 80px;
+    letter-spacing: 1.5px;
+    margin-top: 10%;
+
+
+
+}

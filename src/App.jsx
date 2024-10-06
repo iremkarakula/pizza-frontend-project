@@ -1,14 +1,30 @@
 
+import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
 import './App.css'
-import Iteration1 from './components/Iteration1'
+
+import Home1 from './components/Home1'
+import OrderPizza1 from './components/OrderPizza1'
+import Success1 from './components/Success1'
 
 function App() {
 
 
   return (
-    <>
-      <Iteration1 />
-    </>
+    <div>
+
+
+      <Switch>
+        <Route exact path="/">
+          <Home1 />
+        </Route>
+        <Route exact path="/order">
+          <OrderPizza1 />
+        </Route>
+        <Route exact path="/success">
+          <Success1 />
+        </Route>
+      </Switch>
+    </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home1.css'
+import { Link } from 'react-router-dom'
 
 function Home1() {
     return (
@@ -8,7 +9,9 @@ function Home1() {
             <div className='home1-text'>
                 <h1 className='home1-h1'>Teknolojik Yemekler</h1>
                 <h2 className='home1-h2'>KOD ACIKTIRIR <br /> PİZZA, DOYURUR</h2>
-                <button className='home1-button'>ACIKTIM</button>
+                <Link to='order'>
+                    <button className='home1-button'>ACIKTIM</button>
+                </Link>
             </div>
 
 

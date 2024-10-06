@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './OrderPizza.css'
 
 import BoyutveHamur from './BoyutveHamur'
@@ -6,7 +6,53 @@ import EkMalzemeler from './EkMalzemeler'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 import SiparisOzet from './SiparisOzet'
 
+const initialValue = {
+    isim: "",
+    boyut: "",
+    hamur: "",
+    malzemeler: [],
+    not: ""
+}
+
 function OrderPizza1() {
+    const [dataList, setDataList] = useState([]);
+    const [data, setData] = useState(initialValue);
+
+
+
+    const handleSizeChange = (event) => {
+        setData((prevData) => ({
+            ...prevData,
+            boyut: event,
+        }));
+    }
+    const handleMalzemeChange = (malzeme) => {
+        setData((prevData) => ({
+            ...prevData,
+            malzemeler: malzeme,
+        }));
+
+    };
+
+
+    const handleHamurChange = (event) => {
+        setData((prevData) => ({
+            ...prevData,
+            hamur: event,
+        }));
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setDataList([...dataList, data])
+        setData(initialValue);
+        console.log(data);
+
+
+    }
+
+
+
     return (
         <div className='orderpizza'>
 
@@ -28,8 +74,24 @@ function OrderPizza1() {
                 </div>
                 <p className='op-text'>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
             </div>
-            <BoyutveHamur />
-            <EkMalzemeler />
+            <BoyutveHamur onSizeChange={handleSizeChange} onHamurChange={handleHamurChange} />
+            <EkMalzemeler onMalzemeChange={handleMalzemeChange} />
+            <Form className='isim-form'>
+                <FormGroup className='isim-formgroup'>
+                    <Label for="isim" className='isim-label'>
+                        Ad
+                    </Label>
+                    <Input
+                        id="isim"
+                        name="isim"
+                        placeholder="Adınızı giriniz"
+                        type="text"
+                        value={data.isim}
+                        onChange={(e) => setData((prevData) => ({ ...prevData, isim: e.target.value }))}
+                        className='isim-input'
+                    />
+                </FormGroup>
+            </Form>
             <Form className='not-form'>
                 <FormGroup className='not'>
                     <Label for="exampleText" className='not-label'>
@@ -42,10 +104,13 @@ function OrderPizza1() {
                         placeholder='Siparişine eklemek istediğin bir not var mı?'
                         className='not-input'
                         rows='1'
+                        value={data.not}
+                        onChange={(e) => setData((prevData) => ({ ...prevData, not: e.target.value }))}
+
                     />
                 </FormGroup>
             </Form>
-            <SiparisOzet />
+            <SiparisOzet dataList={dataList} onSubmit={handleSubmit} />
 
 
 
