@@ -1,0 +1,39 @@
+.boyutvehamur {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0;
+    font-family: "Barlow", sans-serif;
+}
+
+.hamur span,
+.boyut span {
+    color: var(--kirmizi);
+}
+
+.boyut-legend {
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.formgroup-radio {
+    margin-bottom: .5rem;
+}
+
+.formgroup-radio input {
+    margin: .5rem;
+}
+
+
+.hamur {
+    margin-right: 5rem;
+}
+
+.hamur label {
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+}
