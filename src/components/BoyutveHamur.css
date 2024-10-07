@@ -1,5 +1,5 @@
 .boyutvehamur {
-    width: 35%;
+    width: 435px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -36,4 +36,60 @@
     font-size: 1rem;
     font-weight: 600;
     display: block;
+}
+
+@media (max-width: 900px) {
+    .boyutvehamur {
+        width: 435px;
+
+
+    }
+
+
+    .boyut-legend {
+
+        font-size: 14px;
+
+    }
+
+
+    .hamur label {
+
+        font-size: 14px;
+
+    }
+
+    .hamur {
+        margin-right: 0;
+    }
+
+
+}
+
+@media (max-width: 800px) {
+    .boyutvehamur {
+        width: 80%;
+        font-size: 14px;
+
+    }
+
+
+    .boyut-legend {
+
+        font-size: 14px;
+
+    }
+
+
+    .hamur label {
+
+        font-size: 14px;
+
+    }
+
+    .hamur {
+        margin-right: 0;
+    }
+
+
 }

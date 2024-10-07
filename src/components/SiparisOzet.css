@@ -1,24 +1,27 @@
 .counter {
     display: flex;
     justify-content: stretch;
-    width: 10rem;
+
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 14px;
     font-weight: 500;
+    font-family: "Barlow", sans-serif;
 
 }
 
 .counter-btn {
     background-color: var(--sari);
     border-radius: 4px;
+    border: none;
+    padding: 1rem;
 }
 
 .counter-number {
-    padding: .5rem 1.5rem;
+    padding: 1rem;
 }
 
 .siparis-ozeti {
-    width: 35%;
+    width: 435px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -26,6 +29,7 @@
     padding-top: 2rem;
     border-top: 1px solid lightgray;
     padding-bottom: 2rem;
+    font-family: "Barlow", sans-serif;
 }
 
 .ozet {
@@ -56,4 +60,61 @@
 .ozet-btn {
     width: 100%;
     background: var(--sari);
+    padding: .9rem 0;
+    border-radius: 4px;
+    color: var(--koyu-gri);
+    font-weight: 600;
+    font-size: 14px;
+    font-family: "Barlow", sans-serif;
+}
+
+@media (max-width:900px) {
+    .siparis-ozeti>* {
+        font-size: 14px;
+    }
+
+    .siparis-ozeti {
+        width: 435px;
+    }
+}
+
+@media (max-width:800px) {
+
+
+    .siparis-ozeti {
+        width: 80%;
+
+    }
+}
+
+@media (max-width:600px) {
+
+
+    .siparis-ozeti {
+        width: 80%;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .ozet {
+        position: relative;
+
+        width: 100%;
+
+    }
+
+    .counter {
+        width: 35%;
+        margin-top: 1rem;
+
+    }
+
+    .ozet-btn {
+        width: 50%;
+        position: absolute;
+        right: 0;
+        margin-top: 1rem;
+        font-size: 14px;
+
+    }
 }

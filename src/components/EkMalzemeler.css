@@ -1,8 +1,9 @@
 .ekmalzemeler {
-    width: 35%;
+    width: 435px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    font-family: "Barlow", sans-serif;
 
 }
 
@@ -29,6 +30,39 @@
 .ekmalzemeler-formgroup {
     width: 33.3%;
     margin-bottom: .5rem;
+
+
+}
+
+@media (max-width: 900px) {
+    .ekmalzemeler h2 {
+        font-size: 16px;
+    }
+
+    .ekmalzemeler p {
+        font-size: 14px;
+    }
+
+
+
+
+}
+
+@media (max-width: 800px) {
+    .ekmalzemeler {
+        width: 80%;
+
+
+    }
+
+    .ekmalzemeler-formgroup {
+        width: 50%;
+        margin-bottom: .5rem;
+        font-size: 14px;
+
+
+    }
+
 
 
 }

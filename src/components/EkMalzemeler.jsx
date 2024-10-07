@@ -7,7 +7,7 @@ const ekMalzemeler = ["Pepperoni", "Sosis", "Kanada Jambonu", "Tavuk Izgara", "S
 function EkMalzemeler({ onMalzemeChange }) {
     const [selectedMalzemeler, setSelectedMalzemeler] = useState([]);
 
-    const handleMalzemeChange = (event) => {
+    const handleChange = (event) => {
         const malzeme = event.target.value;
         const mevcutMalzemeler = selectedMalzemeler.includes(malzeme);
 
@@ -30,11 +30,16 @@ function EkMalzemeler({ onMalzemeChange }) {
                     <FormGroup check className='ekmalzemeler-formgroup' key={index}>
                         <Input
                             id={index}
+                            name="malzemeler"
                             type="checkbox"
                             value={item}
-                            onChange={handleMalzemeChange}
+                            onChange={handleChange}
+                            checked={selectedMalzemeler.includes(item)}
+                            disabled={selectedMalzemeler.length >= 10 && !selectedMalzemeler.includes(item)}
+                            data-cy="malzeme-input"
+
                         />
-                        <Label check for={`${index}`}>
+                        <Label check for={`${index}`} className='ekmalzemeler-label'>
                             {item}
                         </Label>
                     </FormGroup>

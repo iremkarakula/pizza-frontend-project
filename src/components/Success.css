@@ -2,14 +2,18 @@
     background-color: var(--kirmizi);
     width: 100vw;
     height: 100vh;
-    text-align: center;
+
     color: var(--bej);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .success-h1 {
     font-family: "Quattrocento", serif;
     padding: 3rem 0;
     font-size: 3rem;
+    text-align: center;
 
 
 }
@@ -21,7 +25,57 @@
     line-height: 80px;
     letter-spacing: 1.5px;
     margin-top: 10%;
+    text-align: center;
+    width: 80%;
 
+
+
+}
+
+@media (max-width:768px) {
+    .success-h1 {
+
+        font-size: 40px;
+    }
+
+    .success-h2 {
+
+        font-size: 60px;
+        line-height: 70px;
+
+    }
+
+
+}
+
+@media (max-width:520px) {
+    .success-h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+
+    .success-h2 {
+
+        font-size: 50px;
+        line-height: 60px;
+
+    }
+
+
+}
+
+@media (max-width:420px) {
+    .success-h1 {
+        width: 300px;
+        font-size: 28px;
+    }
+
+    .success-h2 {
+
+        font-size: 50px;
+        line-height: 60px;
+
+    }
 
 
 }

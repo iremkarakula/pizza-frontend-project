@@ -3,8 +3,9 @@ import './OrderPizza.css'
 
 import BoyutveHamur from './BoyutveHamur'
 import EkMalzemeler from './EkMalzemeler'
-import { Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 import SiparisOzet from './SiparisOzet'
+import axios from 'axios'
 
 const initialValue = {
     isim: "",
@@ -14,22 +15,42 @@ const initialValue = {
     not: ""
 }
 
+const initialErrors = {
+    isim: false,
+    boyut: false,
+    hamur: false,
+
+}
+export const errorMessages = {
+    isim: "Adınızı en az 3 karakter giriniz",
+    boyut: "Boyut seçiniz",
+    hamur: "Hamur kalınlığı seçiniz",
+
+}
+
 function OrderPizza1() {
     const [dataList, setDataList] = useState([]);
     const [data, setData] = useState(initialValue);
     const [totalAmount, setTotalAmount] = useState(0);
     const [counter, setCounter] = useState(1);
     const [extra, setExtra] = useState(0);
+    const [isValid, setIsValid] = useState(false);
+    const [errors, setErrors] = useState(initialErrors);
 
 
 
+    const handleChange = (event) => {
 
-    const handleSizeChange = (event) => {
-        setData((prevData) => ({
-            ...prevData,
-            boyut: event,
-        }));
+        const { name, value } = event.target;
+        setData({ ...data, [name]: value })
+
+        if (name === 'isim') {
+            const hasError = value.trim().length < 3;
+            setErrors((prevErrors) => ({ ...prevErrors, [name]: hasError }));
+        }
     }
+
+
     const handleMalzemeChange = (malzeme) => {
         setData((prevData) => ({
             ...prevData,
@@ -39,24 +60,33 @@ function OrderPizza1() {
     };
 
 
-    const handleHamurChange = (event) => {
-        setData((prevData) => ({
-            ...prevData,
-            hamur: event,
-        }));
-    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setDataList([...dataList, data])
-        setData(initialValue);
-        console.log(data);
+        if (!isValid) return;
 
+        axios.post(" https://reqres.in/api/pizza ", data).then((response) => {
+            console.log(response.data);
+            setDataList(pre => [...pre, response.data]);
 
+            setData(initialValue);
+            console.log(dataList)
+
+        }).catch((error) => { console.warn(error) })
     }
 
 
-    const isButtonDisabled = data.isim.trim().length < 4 || !data.boyut || !data.hamur || data.malzemeler.length < 4;
+
+
+    useEffect(() => {
+        if (data.isim.trim().length < 3 || !data.boyut || !data.hamur || data.malzemeler.length < 4 || data.malzemeler.length > 10) {
+            setIsValid(false)
+        } else {
+            setIsValid(true)
+        }
+    }, [data])
+
 
     useEffect(() => {
         setTotalAmount((5 * data.malzemeler.length + 85.50) * counter);
@@ -67,13 +97,13 @@ function OrderPizza1() {
     return (
         <div className='orderpizza'>
 
-            <div className='op-head'>
+            <header className='op-head'>
                 <div className="op-head-text">
                     <h1 className='op-h1'>Teknolojik Yemekler</h1>
                     <p className='op-p'>Anasayfa - Seçenekler - <span>Sipariş Oluştur</span></p>
                 </div>
 
-            </div>
+            </header>
             <div className='op-content'>
                 <h2 className='op-h2'> Position Absolute Acı Pizza</h2>
                 <div className='op-sayilar'>
@@ -85,7 +115,7 @@ function OrderPizza1() {
                 </div>
                 <p className='op-text'>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
             </div>
-            <BoyutveHamur onSizeChange={handleSizeChange} onHamurChange={handleHamurChange} />
+            <BoyutveHamur onHandleChange={handleChange} />
             <EkMalzemeler onMalzemeChange={handleMalzemeChange} />
             <Form className='isim-form'>
                 <FormGroup className='isim-formgroup'>
@@ -98,9 +128,13 @@ function OrderPizza1() {
                         placeholder="Adınızı giriniz"
                         type="text"
                         value={data.isim}
-                        onChange={(e) => setData((prevData) => ({ ...prevData, isim: e.target.value }))}
+                        onChange={handleChange}
                         className='isim-input'
+                        data-cy="isim-input"
                     />
+                    {errors.isim && <FormFeedback >
+                        {errorMessages.isim}
+                    </FormFeedback>}
                 </FormGroup>
             </Form>
             <Form className='not-form'>
@@ -110,24 +144,18 @@ function OrderPizza1() {
                     </Label>
                     <Input
                         id="exampleText"
-                        name="text"
+                        name="not"
                         type="textarea"
                         placeholder='Siparişine eklemek istediğin bir not var mı?'
                         className='not-input'
                         rows='1'
                         value={data.not}
-                        onChange={(e) => setData((prevData) => ({ ...prevData, not: e.target.value }))}
+                        onChange={handleChange}
 
                     />
                 </FormGroup>
             </Form>
-            <SiparisOzet onSubmit={handleSubmit} isButtonDisabled={isButtonDisabled} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} />
-
-
-
-
-
-
+            <SiparisOzet onSubmit={handleSubmit} isValid={isValid} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} />
         </div>
     )
 }

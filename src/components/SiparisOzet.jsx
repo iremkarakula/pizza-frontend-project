@@ -3,7 +3,7 @@ import './SiparisOzet.css'
 
 import { useHistory } from 'react-router-dom';
 
-function SiparisOzet({ onSubmit, isButtonDisabled, totalAmount, counter, setCounter, extra }) {
+function SiparisOzet({ onSubmit, isValid, totalAmount, counter, setCounter, extra }) {
 
 
 
@@ -33,7 +33,7 @@ function SiparisOzet({ onSubmit, isButtonDisabled, totalAmount, counter, setCoun
                 <div className='secimler'><span>Seçimler</span> <span>{extra}tl</span></div>
                 <div className='toplam'><span>Toplam</span> <span>{totalAmount}tl</span></div>
 
-                <button className='ozet-btn' onClick={handleSubmit} disabled={isButtonDisabled}>SİPARİŞ VER</button>
+                <button className='ozet-btn' onClick={handleSubmit} disabled={!isValid} data-cy="submit-button">SİPARİŞ VER</button>
 
 
             </div>

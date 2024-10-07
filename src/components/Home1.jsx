@@ -10,7 +10,7 @@ function Home1() {
                 <h1 className='home1-h1'>Teknolojik Yemekler</h1>
                 <h2 className='home1-h2'>KOD ACIKTIRIR <br /> PİZZA, DOYURUR</h2>
                 <Link to='order'>
-                    <button className='home1-button'>ACIKTIM</button>
+                    <button className='home1-button' data-cy="aciktim-button">ACIKTIM</button>
                 </Link>
             </div>
 

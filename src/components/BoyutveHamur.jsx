@@ -4,17 +4,11 @@ import './BoyutveHamur.css'
 
 
 
-export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
+export default function BoyutveHamur({ onHandleChange }) {
 
-
-    const handleSizeChange = (event) => {
-        onSizeChange(event.target.value);
+    const handleChange = (event) => {
+        onHandleChange(event);
     }
-
-    const handleHamurChange = (event) => {
-        onHamurChange(event.target.value);
-    }
-
 
     return (
         <div className='boyutvehamur'><Form className='boyut'>
@@ -27,19 +21,24 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
                     name="boyut"
                     type="radio"
                     value="küçük"
-                    onChange={handleSizeChange}
+                    data-cy="boyut-input"
+
+                    onChange={handleChange}
+
                 />
                 <Label check for="radio1">
                     Küçük
                 </Label>
             </FormGroup>
-            <FormGroup check className='formgroup-radio'>
+            <FormGroup check className='formgroup-radio' >
                 <Input
                     id="radio2"
                     name="boyut"
                     type="radio"
                     value="orta"
-                    onChange={handleSizeChange}
+                    onChange={handleChange}
+                    data-cy="boyut-input"
+
                 />
                 <Label check for="radio2">
                     Orta
@@ -51,7 +50,9 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
                     name="boyut"
                     type="radio"
                     value="büyük"
-                    onChange={handleSizeChange}
+                    onChange={handleChange}
+                    data-cy="boyut-input"
+
                 />
                 <Label check for="radio3">
                     Büyük
@@ -65,9 +66,10 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
                     </Label>
                     <Input
                         id="exampleSelect"
-                        name="select"
+                        name="hamur"
                         type="select"
-                        onChange={handleHamurChange}
+                        onChange={handleChange}
+                        data-cy="hamur-input"
                     >
                         <option hidden>
                             Hamur Kalınlığı
@@ -84,6 +86,6 @@ export default function BoyutveHamur({ onSizeChange, onHamurChange }) {
 
                     </Input>
                 </FormGroup>
-            </Form></div>
+            </Form></div >
     )
 }
