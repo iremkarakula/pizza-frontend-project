@@ -7,13 +7,7 @@ import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 import SiparisOzet from './SiparisOzet'
 import axios from 'axios'
 
-const initialValue = {
-    isim: "",
-    boyut: "",
-    hamur: "",
-    malzemeler: [],
-    not: ""
-}
+
 
 const initialErrors = {
     isim: false,
@@ -28,12 +22,10 @@ export const errorMessages = {
 
 }
 
-function OrderPizza1() {
+function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter }) {
     const [dataList, setDataList] = useState([]);
-    const [data, setData] = useState(initialValue);
-    const [totalAmount, setTotalAmount] = useState(0);
-    const [counter, setCounter] = useState(1);
-    const [extra, setExtra] = useState(0);
+
+
     const [isValid, setIsValid] = useState(false);
     const [errors, setErrors] = useState(initialErrors);
 
@@ -95,14 +87,13 @@ function OrderPizza1() {
 
 
     return (
-        <div className='orderpizza'>
+        <section className='orderpizza'>
 
             <header className='op-head'>
                 <div className="op-head-text">
                     <h1 className='op-h1'>Teknolojik Yemekler</h1>
                     <p className='op-p'>Anasayfa - Seçenekler - <span>Sipariş Oluştur</span></p>
                 </div>
-
             </header>
             <div className='op-content'>
                 <h2 className='op-h2'> Position Absolute Acı Pizza</h2>
@@ -156,7 +147,7 @@ function OrderPizza1() {
                 </FormGroup>
             </Form>
             <SiparisOzet onSubmit={handleSubmit} isValid={isValid} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} />
-        </div>
+        </section>
     )
 }
 

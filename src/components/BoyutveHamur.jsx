@@ -11,54 +11,55 @@ export default function BoyutveHamur({ onHandleChange }) {
     }
 
     return (
-        <div className='boyutvehamur'><Form className='boyut'>
-            <legend className='boyut-legend'>
-                Boyut Seç<span>*</span>
-            </legend>
-            <FormGroup check className='formgroup-radio'>
-                <Input
-                    id="radio1"
-                    name="boyut"
-                    type="radio"
-                    value="küçük"
-                    data-cy="boyut-input"
+        <div className='boyutvehamur'>
+            <Form className='boyut'>
+                <legend className='boyut-legend'>
+                    Boyut Seç<span>*</span>
+                </legend>
+                <FormGroup check className='formgroup-radio'>
+                    <Input
+                        id="radio1"
+                        name="boyut"
+                        type="radio"
+                        value="küçük"
+                        data-cy="boyut-input"
 
-                    onChange={handleChange}
+                        onChange={handleChange}
 
-                />
-                <Label check for="radio1">
-                    Küçük
-                </Label>
-            </FormGroup>
-            <FormGroup check className='formgroup-radio' >
-                <Input
-                    id="radio2"
-                    name="boyut"
-                    type="radio"
-                    value="orta"
-                    onChange={handleChange}
-                    data-cy="boyut-input"
+                    />
+                    <Label check for="radio1">
+                        Küçük
+                    </Label>
+                </FormGroup>
+                <FormGroup check className='formgroup-radio' >
+                    <Input
+                        id="radio2"
+                        name="boyut"
+                        type="radio"
+                        value="orta"
+                        onChange={handleChange}
+                        data-cy="boyut-input"
 
-                />
-                <Label check for="radio2">
-                    Orta
-                </Label>
-            </FormGroup>
-            <FormGroup check className='formgroup-radio'>
-                <Input
-                    id="radio3"
-                    name="boyut"
-                    type="radio"
-                    value="büyük"
-                    onChange={handleChange}
-                    data-cy="boyut-input"
+                    />
+                    <Label check for="radio2">
+                        Orta
+                    </Label>
+                </FormGroup>
+                <FormGroup check className='formgroup-radio'>
+                    <Input
+                        id="radio3"
+                        name="boyut"
+                        type="radio"
+                        value="büyük"
+                        onChange={handleChange}
+                        data-cy="boyut-input"
 
-                />
-                <Label check for="radio3">
-                    Büyük
-                </Label>
-            </FormGroup>
-        </Form>
+                    />
+                    <Label check for="radio3">
+                        Büyük
+                    </Label>
+                </FormGroup>
+            </Form>
             <Form className='hamur'>
                 <FormGroup className='formgroup-hamur'>
                     <Label for="exampleSelect">
@@ -86,6 +87,7 @@ export default function BoyutveHamur({ onHandleChange }) {
 
                     </Input>
                 </FormGroup>
-            </Form></div >
+            </Form>
+        </ div >
     )
 }

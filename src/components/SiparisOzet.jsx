@@ -22,7 +22,7 @@ function SiparisOzet({ onSubmit, isValid, totalAmount, counter, setCounter, extr
 
 
 
-        <div className='siparis-ozeti' >
+        <section className='siparis-ozeti' >
             <div className='counter'>
                 <button className='counter-btn ' onClick={() => setCounter(counter === 1 ? 1 : counter - 1)}>-</button>
                 <div className='counter-number'>{counter}</div>
@@ -30,17 +30,11 @@ function SiparisOzet({ onSubmit, isValid, totalAmount, counter, setCounter, extr
             </div>
             <div className='ozet'>
                 <h2 className='ozet-h2'>Sipariş Toplamı</h2>
-                <div className='secimler'><span>Seçimler</span> <span>{extra}tl</span></div>
-                <div className='toplam'><span>Toplam</span> <span>{totalAmount}tl</span></div>
-
+                <p className='secimler'><span>Seçimler</span> <span>{extra}tl</span></p>
+                <p className='toplam'><span>Toplam</span> <span>{totalAmount}tl</span></p>
                 <button className='ozet-btn' onClick={handleSubmit} disabled={!isValid} data-cy="submit-button">SİPARİŞ VER</button>
-
-
             </div>
-
-
-
-        </div>
+        </section>
     )
 }
 

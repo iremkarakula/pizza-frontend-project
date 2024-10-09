@@ -1,21 +1,18 @@
-.success {
+header.success {
     background-color: var(--kirmizi);
-    width: 100vw;
-    height: 100vh;
-
+    width: 100%;
+    min-height: 100vh;
     color: var(--bej);
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .success-h1 {
     font-family: "Quattrocento", serif;
     padding: 3rem 0;
     font-size: 3rem;
-    text-align: center;
-
-
 }
 
 .success-h2 {
@@ -25,27 +22,108 @@
     line-height: 80px;
     letter-spacing: 1.5px;
     margin-top: 10%;
-    text-align: center;
     width: 80%;
+}
 
+.success hr {
+    margin: 4rem auto;
+    width: 40%;
+    height: 1px;
+}
+
+.success-ozet {
+    width: 30%;
+    border: 1px solid wheat;
+}
+
+.div1 {
+
+    padding: 0 2rem;
+}
+
+.success-ozet h2,
+.success-ozet h3 {
+    font-family: "Barlow", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.success-ozet div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.div1 p {
+    font-family: "Barlow", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    align-self: flex-start;
+    text-align: left;
 
 
 }
 
+.div2 {
+    font-family: "Barlow", sans-serif;
+    border: 1px solid var(--bej);
+    padding: 2rem;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.div2 p {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--bej);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.div2 h2 {
+    align-self: flex-start;
+}
+
+@media (max-width: 1024px) {
+    .success-ozet {
+        width: 50%;
+
+    }
+
+    .success hr {
+
+        width: 50%;
+
+    }
+}
+
 @media (max-width:768px) {
     .success-h1 {
-
         font-size: 40px;
     }
 
     .success-h2 {
-
         font-size: 60px;
         line-height: 70px;
-
     }
 
+    .div1 p,
+    .div2 p {
+        font-size: 18px;
+    }
 
+    .success-ozet h2,
+    .success-ozet h3 {
+
+        font-size: 20px;
+
+    }
 }
 
 @media (max-width:520px) {
@@ -58,10 +136,27 @@
 
         font-size: 50px;
         line-height: 60px;
+    }
+
+    .success-ozet {
+        width: 80%;
 
     }
 
+    .success hr {
 
+        width: 80%;
+
+    }
+}
+
+@media (max-width:600px) {
+
+
+    .success-ozet {
+        width: 80%;
+
+    }
 }
 
 @media (max-width:420px) {
@@ -69,13 +164,4 @@
         width: 300px;
         font-size: 28px;
     }
-
-    .success-h2 {
-
-        font-size: 50px;
-        line-height: 60px;
-
-    }
-
-
 }
