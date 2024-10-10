@@ -1,0 +1,165 @@
+footer {
+
+    width: 100%;
+    background: var(--koyu-gri);
+    font-family: "Barlow", sans-serif;
+    color: var(--bej);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upper-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    width: 900px;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-1 {
+    width: 280px;
+    text-align: left;
+
+}
+
+.footer-1 h1 {
+    font-family: "Londrina Solid", sans-serif;
+    margin: 3rem 1rem;
+    font-size: 45px;
+
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-item img {
+    width: 28px;
+    height: 28px;
+}
+
+.footer-2 {
+    width: 200px;
+    text-align: left;
+}
+
+.footer-3 h2,
+.footer-2 h2 {
+    margin-bottom: 2rem;
+}
+
+.footer-2 p {
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+.footer-3 {
+    width: 325px;
+    margin-bottom: .5rem;
+    text-align: left;
+
+
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-hr {
+    width: 100%;
+    height: 1px solid var(--koyu-gri);
+    margin: 1.5rem 0;
+}
+
+.copy1 {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+}
+
+@media (max-width:1000px) {
+
+    .copy1,
+    .upper-footer {
+        width: 550px;
+    }
+}
+
+@media (max-width:768px) {
+
+    .upper-footer {
+        width: 330px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .copy1 {
+        width: 330px;
+    }
+}
+
+@media (max-width:440px) {
+
+    .copy1,
+    .upper-footer {
+        width: 295px;
+    }
+
+    .footer-item img {
+        width: 23px !important;
+        height: 23px !important;
+    }
+
+    .footer-item {
+        gap: .5rem;
+    }
+
+    .insta {
+        width: 85px;
+        height: 85px;
+    }
+
+    .photos {
+        gap: .5rem;
+    }
+
+    .copy1 {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width:360px) {
+    .footer-item img {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+
+
+    .copy1,
+    .upper-footer {
+        width: 250px;
+    }
+
+    .insta {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .photos {
+        gap: .3rem;
+    }
+}

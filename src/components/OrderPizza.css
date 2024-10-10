@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+
 
 }
 
@@ -11,43 +11,53 @@
 
     width: 100%;
     background-color: var(--kirmizi);
+    margin: 0 auto;
 
 
 
 }
+
+
+
 
 .op-head-text {
 
     color: var(--bej);
-    width: 450px;
     margin: auto;
 }
 
 .op-h1 {
-    font-family: "Quattrocento", serif;
-    padding: 3rem 0;
+    font-family: "Londrina Solid", sans-serif;
+    padding: 2rem 0;
     font-size: 33px;
-    width: 100%;
+
     text-align: center;
+    margin: 0 auto;
+
 }
 
 .op-p {
     font-family: "Barlow", sans-serif;
-    padding: 1rem 0;
+    padding: 32px 0;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
+    color: var(--koyu-gri);
 
 }
 
 .op-p span {
+    color: var(--kirmizi);
+    font-weight: 600;
 
-    font-weight: 500;
 
 }
 
+.op-text {
+    line-height: 150%;
+}
+
 .op-content {
-    margin-top: 1rem;
-    width: 435px;
+    width: 530px;
     color: var(--koyu-gri);
     font-family: "Barlow", sans-serif;
 }
@@ -77,7 +87,7 @@
 
 .isim-form,
 .not-form {
-    width: 435px;
+    width: 530px;
     padding-bottom: 2rem;
 
 
@@ -89,6 +99,7 @@
     flex-direction: column;
     align-items: flex-start;
     flex: 1;
+    color: var(--koyu-gri);
 
 }
 
@@ -97,9 +108,9 @@
     padding: 1.2rem;
     border-radius: .5rem;
 
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-
+    color: var(--koyu-gri);
 
     font-family: "Barlow", sans-serif;
 
@@ -108,14 +119,17 @@
 
 .not-label {
     display: block;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: bold;
     padding: 2rem 0rem 1rem 0rem;
     font-family: "Barlow", sans-serif;
 }
 
 .isim-form {
-    width: 435px;
+    width: 530px;
+    color: var(--koyu-gri);
+
+
 
 
 }
@@ -131,10 +145,10 @@
     width: 100%;
     padding: .5rem;
     border-radius: .5rem;
-
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     font-family: "Barlow", sans-serif;
+    color: var(--koyu-gri);
 
 
 
@@ -143,150 +157,25 @@
 
 .isim-label {
 
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: bold;
     padding: 2rem 0rem 1rem 0rem;
     font-family: "Barlow", sans-serif;
 }
 
+@media (max-width: 768px) {
 
-
-
-
-@media (max-width: 900px) {
-
-
-    .op-h1 {
-
-        padding: 3rem 0;
-        font-size: 30px;
-
-
-    }
-
-    .op-p {
-        font-family: "Barlow", sans-serif;
-        padding: 1rem 0;
-        font-size: 14px;
-        font-weight: 300;
-
-    }
-
-    .isim-form {
-        width: 435px;
-
-
-    }
-
-
-
-
-
-    .isim-label {
-        font-size: 14px;
-    }
-
-    .not-form {
-        width: 435px;
-
-
-
-    }
-
-
-
-    .not-input {
-        width: 100%;
-
-
-    }
-
-    .not-label {
-        font-size: 14px;
-    }
-
-
-}
-
-@media (max-width: 800px) {
-    .op-head-text {
-
-
-        width: 80%;
-
-    }
-
-    .op-p {
-        font-family: "Barlow", sans-serif;
-        padding: 1rem 0;
-        font-size: 12px;
-
-
-    }
-
-    .op-p span {
-
-        font-weight: 500;
-
-    }
-
-
-    .op-h1 {
-
-        padding: 3rem 0;
-        font-size: 27px;
-
-
-    }
-
-
-    .op-content {
-
-        width: 80%;
-
-    }
-
-    .op-h2 {
-        font-size: 24px;
-        color: var(--koyu-gri);
-
-    }
-
-    .op-sayilar {
-        padding: 2rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 2rem;
-        font-weight: 600;
-    }
-
-    .op-sayilar2 {
-
-        font-size: 20px;
-        width: 20%;
-
-    }
 
 
     .isim-form,
-    .not-form {
-        width: 80%;
-
-
-
+    .not-form,
+    .op-content {
+        width: 410px;
     }
 
-    .isim-input,
-    .not-input {
-        width: 90%;
-
-
+    .banner {
+        width: 410px;
     }
-
-
-
-
 
 
 }
@@ -294,56 +183,19 @@
 @media (max-width: 540px) {
 
 
-    .op-h1 {
-
-        padding: 3rem 0;
-        font-size: 25px;
-
-
-    }
-
-    .op-p {
-        font-family: "Barlow", sans-serif;
-        padding: 1rem 0;
-        font-size: 12px;
-        font-weight: 300;
-
-    }
-
+    .isim-form,
+    .not-form,
     .op-content {
-
         width: 85%;
-
     }
 
-    .op-h2 {
-        font-size: 20px;
-
-
+    .banner {
+        width: 85%;
     }
 
-    .op-sayilar {
-
-        font-size: 1.5rem;
-
+    .op-h1 {
+        font-size: 28px;
     }
-
-    .op-sayilar2 {
-
-        font-size: 1rem;
-        width: 100px;
-
-    }
-
-    .op-text {
-
-        font-size: 14px;
-
-
-    }
-
-
-
 
 
 }

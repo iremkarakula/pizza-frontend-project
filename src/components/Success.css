@@ -1,7 +1,7 @@
-header.success {
+.success {
     background-color: var(--kirmizi);
     width: 100%;
-    min-height: 100vh;
+
     color: var(--bej);
     display: flex;
     flex-direction: column;
@@ -10,35 +10,44 @@ header.success {
 }
 
 .success-h1 {
-    font-family: "Quattrocento", serif;
+    font-family: "Londrina Solid", sans-serif;
     padding: 3rem 0;
-    font-size: 3rem;
+    font-size: 50px;
 }
 
 .success-h2 {
     font-family: "Roboto Condensed", sans-serif;
-    font-size: 70px;
+    font-size: 83px;
     font-weight: 300;
-    line-height: 80px;
+    line-height: 110%;
     letter-spacing: 1.5px;
-    margin-top: 10%;
-    width: 80%;
+    border-bottom: 1px solid;
+    padding-bottom: 3rem;
+
+
 }
 
-.success hr {
-    margin: 4rem auto;
-    width: 40%;
-    height: 1px;
+.success h3 {
+    font-family: "Satisfy", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 44.27px;
+    color: var(--sari);
+
 }
+
+
 
 .success-ozet {
-    width: 30%;
+    width: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
-.div1 {
-
-    padding: 0 2rem;
+.success-ozet .div1 {
+    width: 350px;
 }
 
 .success-ozet h2,
@@ -46,10 +55,15 @@ header.success {
     font-family: "Barlow", sans-serif;
     font-size: 22px;
     font-weight: 600;
+    color: var(--bej);
 }
 
-.success-ozet div {
-    width: 100%;
+.success-ozet h3 {
+    margin: 30px 0;
+}
+
+.success-ozet .div2 {
+    width: 450px;
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
@@ -59,63 +73,70 @@ header.success {
 
 .div1 p {
     font-family: "Barlow", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 1.5px;
     align-self: flex-start;
     text-align: left;
+    margin-bottom: .5rem;
+}
 
-
+.div1 span {
+    font-weight: 600;
 }
 
 .div2 {
     font-family: "Barlow", sans-serif;
     border: 1px solid var(--bej);
+    border-radius: 6px;
     padding: 2rem;
-    width: 100%;
-    margin: 1rem auto;
+    width: 400px;
+    margin: 2rem 5rem;
+    font-weight: 500;
+
+
+
+
 }
 
 .div2 p {
     width: 100%;
+    color: var(--bej);
+    font-size: 18px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: var(--bej);
-    font-size: 20px;
-    font-weight: 500;
+
+
+
 }
 
 .div2 h2 {
+    font-size: 20px;
     align-self: flex-start;
+
 }
 
-@media (max-width: 1024px) {
-    .success-ozet {
-        width: 50%;
-
-    }
-
-    .success hr {
-
-        width: 50%;
-
-    }
-}
-
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .success-h1 {
-        font-size: 40px;
+        font-size: 30px;
+        width: 278px;
     }
 
     .success-h2 {
-        font-size: 60px;
-        line-height: 70px;
+        font-size: 55px;
+        margin: 0 2rem;
     }
 
-    .div1 p,
-    .div2 p {
-        font-size: 18px;
+    .success h3 {
+        font-size: 26px;
+    }
+
+}
+
+@media (max-width: 540px) {
+    .success-ozet {
+        width: 80%;
     }
 
     .success-ozet h2,
@@ -124,44 +145,21 @@ header.success {
         font-size: 20px;
 
     }
-}
 
-@media (max-width:520px) {
-    .success-h1 {
-        width: 400px;
-        font-size: 30px;
+    .div1 p {
+        font-size: 15px;
     }
 
-    .success-h2 {
 
-        font-size: 50px;
-        line-height: 60px;
-    }
+    .div2 p {
+        font-size: 16px;
 
-    .success-ozet {
-        width: 80%;
 
     }
 
-    .success hr {
-
-        width: 80%;
-
+    .div1,
+    .div2 {
+        width: 80% !important;
     }
-}
 
-@media (max-width:600px) {
-
-
-    .success-ozet {
-        width: 80%;
-
-    }
-}
-
-@media (max-width:420px) {
-    .success-h1 {
-        width: 300px;
-        font-size: 28px;
-    }
 }

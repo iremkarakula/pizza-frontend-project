@@ -6,6 +6,7 @@ import EkMalzemeler from './EkMalzemeler'
 import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 import SiparisOzet from './SiparisOzet'
 import axios from 'axios'
+import Footer from './Footer'
 
 
 
@@ -22,7 +23,7 @@ export const errorMessages = {
 
 }
 
-function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter }) {
+function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter, setShouldScroll }) {
     const [dataList, setDataList] = useState([]);
 
 
@@ -86,16 +87,25 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
     }, [data.malzemeler, counter])
 
 
+    useEffect(() => {
+        setShouldScroll(false);
+        return () => setShouldScroll(true);
+    }, [setShouldScroll]);
+
+
     return (
+
         <section className='orderpizza'>
 
             <header className='op-head'>
                 <div className="op-head-text">
                     <h1 className='op-h1'>Teknolojik Yemekler</h1>
-                    <p className='op-p'>Anasayfa - Seçenekler - <span>Sipariş Oluştur</span></p>
                 </div>
             </header>
+            <img src="../Assets/Iteration-2-aseets/pictures/form-banner.png" className='banner' />
             <div className='op-content'>
+
+                <p className='op-p'>Anasayfa - <span className='span-siparis'>Sipariş Oluştur</span></p>
                 <h2 className='op-h2'> Position Absolute Acı Pizza</h2>
                 <div className='op-sayilar'>
                     <div>85.50tl</div>
@@ -147,7 +157,10 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
                 </FormGroup>
             </Form>
             <SiparisOzet onSubmit={handleSubmit} isValid={isValid} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} />
+            <Footer />
         </section>
+
+
     )
 }
 

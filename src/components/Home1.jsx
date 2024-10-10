@@ -1,10 +1,11 @@
 import React from 'react'
 import './Home1.css'
 import { Link } from 'react-router-dom'
+import Footer from './Footer'
 
 function Home1() {
     return (
-        <div>
+        <div className='page1'>
             <header className='home1'>
                 <img src='../Assets/Iteration-1-assets/home-banner.png' className='home1-img' />
                 <div className='home1-text'>
@@ -51,19 +52,27 @@ function Home1() {
                         <h1>Özel</h1>
                         <h3>Lezzetus</h3>
                         <h2>Position:Absolute Acı Burger</h2>
-                        <button>SİPARİŞ VER</button>
+                        <Link to='order'>
+                            <button>SİPARİŞ VER</button>
+                        </Link>
+
                     </div>
                     <div class="card-items2">
                         <div class="card2">
                             <h1>Hackathlon </h1>
                             <h2>Burger Menü</h2>
-                            <button>SİPARİŞ VER</button>
+                            <Link to='order'>
+                                <button>SİPARİŞ VER</button>
+                            </Link>
+
                         </div>
                         <div class="card3">
                             <h1><span style={{ color: "#D80027" }}>Çoooook</span> hızlı</h1>
                             <h2>npm gibi kurye</h2>
+                            <Link to='order'>
+                                <button>SİPARİŞ VER</button>
+                            </Link>
 
-                            <button>SİPARİŞ VER</button>
                         </div>
                     </div>
 
@@ -83,12 +92,7 @@ function Home1() {
                     <img src="../Assets/Iteration-2-aseets/icons/1.svg" />
                     <p>Ramen</p>
                 </div>
-                <div class="meal-items20" style={{
-                    background: "black",
-                    color: "white",
-                    borderRadius: "50px",
-                    padding: "5px 20px"
-                }}>
+                <div class="meal-items20 siyah-pizza">
                     <img src="../Assets/Iteration-2-aseets/icons/2.svg" />
                     <p>Pizza</p>
                 </div>
@@ -145,64 +149,7 @@ function Home1() {
                 </div>
             </div>
 
-            {/* <footer>
-                <div class="main-footer">
-                    <div class="upper-footer">
-                        <div class="footer-1">
-                            <h1>Teknolojik Yemekler</h1>
-                            <div class="footer-item-container">
-                                <div class="footer-item">
-                                    <img src="../Assets/Iteration-2-aseets/footer/icons//icon-1.png" />
-                                    <p>341 Londonderry Road, Istanbul Türkiye</p>
-                                </div>
-                                <div class="footer-item">
-                                    <img src="../Assets/Iteration-2-aseets/footer/icons//icon-2.png" />
-                                    <p>aciktim@teknolojikyemekler.com</p>
-                                </div>
-                                <div class="footer-item">
-                                    <img src="../Assets/Iteration-2-aseets/footer/icons//icon-3.png" />
-                                    <p>+90 216 123 45 67</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-2">
-                            <h2>Hot Menu</h2>
-                            <div class="footer-2-container">
-                                <p>Terminal Pizza</p>
-                                <p>5 Kişilik Hackathlon Pizza</p>
-                                <p>useEffect Tavuklu Pizza</p>
-                                <p>Beyaz  Console Frosty</p>
-                                <p>Testler Geçti Mutlu Burger</p>
-                                <p>Position Absolute Acı Burger</p>
-                            </div>
-                        </div>
-                        <div class="footer-3">
-                            <h2>Instagram</h2>
-                            <div class="photos">
-                                <img src="../Assets/Iteration-2-aseets/footer/insta/li-0.png" />
-                                <img src="../Assets/Iteration-2-aseets/footer/insta/li-1.png" />
-                                <img src="../Assets/Iteration-2-aseets/footer/insta/li-2.png" />
-                                <img src="../Assets/Iteration-2-aseets/footer/insta/li-3.png" />
-                                <img src="../Assets/Iteration-2-aseets/footer/insta/li-4.png" />
-                                <img src="../Assets/Iteration-2-aseets/footer/insta/li-5.png" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="line">
-                        <div class="copy1">
-                            <p>&copy; 2024 Teknolojik Yemekler.</p>
-                            <p><i class="fab fa-twitter"></i></p>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-
-            </footer> */}
+            <Footer />
         </div >
 
 

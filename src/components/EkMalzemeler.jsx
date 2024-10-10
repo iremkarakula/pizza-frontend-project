@@ -40,7 +40,7 @@ function EkMalzemeler({ onMalzemeChange }) {
 
                         />
                         <Label check for={`${index}`} className='ekmalzemeler-label'>
-                            {item}
+                            <span className='ekmalzemeler-text'>{item}</span>
                         </Label>
                     </FormGroup>
                 ))}

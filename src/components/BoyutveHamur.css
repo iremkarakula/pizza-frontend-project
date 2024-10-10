@@ -1,10 +1,11 @@
 .boyutvehamur {
-    width: 435px;
+    width: 530px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding: 2rem 0;
     font-family: "Barlow", sans-serif;
+    color: var(--koyu-gri);
 }
 
 .hamur span,
@@ -14,16 +15,21 @@
 
 .boyut-legend {
     padding: 1rem 0;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 600;
+
 }
+
 
 .formgroup-radio {
     margin-bottom: .5rem;
+    display: inline;
 }
 
 .formgroup-radio input {
     margin: .5rem;
+
+
 }
 
 
@@ -33,62 +39,140 @@
 
 .hamur label {
     padding: 1rem 0;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 600;
     display: block;
 }
 
-@media (max-width: 900px) {
-    .boyutvehamur {
-        width: 435px;
 
 
-    }
+.boyut {
+    display: flex;
+    flex-direction: column;
+
+}
 
 
-    .boyut-legend {
 
-        font-size: 14px;
+.formgroup-radio {
+    position: relative;
 
-    }
+}
+
+.formgroup-radio input {
+    display: none;
+}
+
+.radio-div {
+    display: flex;
+    gap: 5px;
+}
+
+.custom-radio {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--koyu-gri);
+    background-color: #FAF7F2;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    gap: 2px;
+}
+
+.formgroup-radio input:checked+.custom-radio {
+    background-color: #FFEECC;
 
 
-    .hamur label {
-
-        font-size: 14px;
-
-    }
-
-    .hamur {
-        margin-right: 0;
-    }
 
 
 }
 
-@media (max-width: 800px) {
+.custom-radio:hover {
+    background-color: #FFEECC;
+
+}
+
+
+
+
+
+option {
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+
+
+.custom-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 5px;
+    border-radius: 6px;
+    height: 40px;
+    background-color: #FAF7F2;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    appearance: none;
+    cursor: pointer;
+}
+
+.custom-select:hover,
+.custom-select:focus {
+    background-color: #FFEECC;
+
+}
+
+
+@media (max-width: 768px) {
     .boyutvehamur {
-        width: 80%;
-        font-size: 14px;
+        width: 410px;
 
     }
 
+    .boyut,
+    .hamur {
+        width: 40%;
+        margin-right: 0;
+    }
+}
 
-    .boyut-legend {
+@media (max-width: 540px) {
 
-        font-size: 14px;
 
+    .boyutvehamur {
+        width: 85%;
+    }
+}
+
+@media (max-width: 500px) {
+
+
+    .boyutvehamur {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
     }
 
-
-    .hamur label {
-
-        font-size: 14px;
+    .boyut,
+    .hamur {
+        width: fit-content;
+        margin-bottom: 2rem;
 
     }
 
     .hamur {
-        margin-right: 0;
+        margin-bottom: 4rem;
+
     }
 
 

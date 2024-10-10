@@ -2,8 +2,8 @@
     display: flex;
     justify-content: stretch;
     align-items: center;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     font-family: "Barlow", sans-serif;
 }
 
@@ -12,14 +12,16 @@
     border-radius: 4px;
     border: none;
     padding: 1rem;
+    color: var(--koyu-gri);
+    cursor: pointer;
 }
 
 .counter-number {
-    padding: 1rem;
+    padding: 1.1rem;
 }
 
 .siparis-ozeti {
-    width: 435px;
+    width: 530px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -28,6 +30,8 @@
     border-top: 1px solid lightgray;
     padding-bottom: 2rem;
     font-family: "Barlow", sans-serif;
+    color: var(--koyu-gri);
+    margin-bottom: 2rem;
 }
 
 .ozet {
@@ -39,6 +43,10 @@
 
 .ozet>* {
     margin-bottom: 1rem;
+}
+
+.ozet-h2 {
+    font-size: 20px;
 }
 
 .secimler {
@@ -61,59 +69,54 @@
     border-radius: 4px;
     color: var(--koyu-gri);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     font-family: "Barlow", sans-serif;
     outline: none;
     border: none;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
-@media (max-width:900px) {
-    .siparis-ozeti>* {
-        font-size: 14px;
-    }
-
-    .siparis-ozeti {
-        width: 435px;
-    }
+.ozet-btn:disabled {
+    opacity: 0.7;
 }
 
-@media (max-width:800px) {
 
-
+@media (max-width: 768px) {
     .siparis-ozeti {
-        width: 80%;
-
+        width: 410px;
     }
 }
 
-@media (max-width:600px) {
-
-
+@media (max-width: 540px) {
     .siparis-ozeti {
-        width: 80%;
+        display: flex;
         flex-direction: column-reverse;
-        align-items: flex-start;
+        position: relative;
+        padding-bottom: 0;
+        width: 85%;
     }
 
     .ozet {
-        position: relative;
-
         width: 100%;
+        margin-bottom: 30px;
+        padding-bottom: 16px;
+    }
+
+    .ozet-btn {
+        position: absolute;
+        width: 50%;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        height: 48px;
 
     }
 
     .counter {
-        width: 35%;
-        margin-top: 1rem;
-
+        height: 46px;
     }
 
-    .ozet-btn {
-        width: 50%;
-        position: absolute;
-        right: 0;
-        margin-top: 1rem;
-        font-size: 14px;
 
-    }
 }
