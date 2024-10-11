@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './EkMalzemeler.css'
-import { Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 
 const ekMalzemeler = ["Pepperoni", "Sosis", "Kanada Jambonu", "Tavuk Izgara", "Soğan", "Domates", "Mısır", "Sucuk", "Jalepeno", "Sarımsak", "Biber", "Mantar", "Ananas", "Kabak"]
 
-function EkMalzemeler({ onMalzemeChange }) {
+function EkMalzemeler({ onMalzemeChange, errors, errorMessages }) {
     const [selectedMalzemeler, setSelectedMalzemeler] = useState([]);
 
     const handleChange = (event) => {
@@ -23,8 +23,13 @@ function EkMalzemeler({ onMalzemeChange }) {
     };
     return (
         <div className='ekmalzemeler'>
-            <h2>Ek Malzemeler</h2>
-            <p>En fazla 10 malzeme seçebilirsiniz. 5tl</p>
+            <h2>Ek Malzemeler <span className='span-5tl'>5tl</span></h2>
+            {selectedMalzemeler.length < 4 && selectedMalzemeler.length >= 0 ? <FormFeedback className='malzeme1-fb'>
+                {errorMessages.malzeme1}
+            </FormFeedback> : ""}
+            {selectedMalzemeler.length >= 10 ? <FormFeedback className='malzeme1-fb'>
+                En fazla 10 malzeme seçebilirsiniz
+            </FormFeedback> : ""}
             <Form className='ekmalzemeler-form'>
                 {ekMalzemeler.map((item, index) => (
                     <FormGroup check className='ekmalzemeler-formgroup' key={index}>
@@ -35,7 +40,7 @@ function EkMalzemeler({ onMalzemeChange }) {
                             value={item}
                             onChange={handleChange}
                             checked={selectedMalzemeler.includes(item)}
-                            disabled={selectedMalzemeler.length >= 10 && !selectedMalzemeler.includes(item)}
+                            // disabled={selectedMalzemeler.length >= 10 && !selectedMalzemeler.includes(item)}
                             data-cy="malzeme-input"
 
                         />

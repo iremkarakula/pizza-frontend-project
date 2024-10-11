@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 import './BoyutveHamur.css'
 
 
 
-export default function BoyutveHamur({ onHandleChange }) {
+export default function BoyutveHamur({ onHandleChange, errors, errorMessages }) {
 
     const handleChange = (event) => {
         onHandleChange(event);
@@ -16,6 +16,9 @@ export default function BoyutveHamur({ onHandleChange }) {
                 <legend className='boyut-legend'>
                     Boyut Seç<span>*</span>
                 </legend>
+                {errors.boyut && <FormFeedback className='boyut-fb'>
+                    {errorMessages.boyut}
+                </FormFeedback>}
                 <div className='radio-div'>
                     <FormGroup check className='formgroup-radio'>
                         <Input
@@ -61,12 +64,16 @@ export default function BoyutveHamur({ onHandleChange }) {
                     </FormGroup>
                 </div>
 
+
             </Form>
             <Form className='hamur'>
                 <FormGroup className='formgroup-hamur'>
                     <Label for="exampleSelect">
                         Hamur Seç<span>*</span>
                     </Label>
+                    {errors.hamur && <FormFeedback className='hamur-fb'>
+                        {errorMessages.hamur}
+                    </FormFeedback>}
                     <Input
                         id="exampleSelect"
                         name="hamur"

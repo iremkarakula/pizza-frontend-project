@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './SiparisOzet.css'
 
 import { useHistory } from 'react-router-dom';
+import { FormFeedback } from 'reactstrap';
 
-function SiparisOzet({ onSubmit, isValid, totalAmount, counter, setCounter, extra }) {
 
+function SiparisOzet({ onSubmit, isValid, totalAmount, counter, setCounter, extra, data, errorMessages, errors, setIsValid }) {
 
 
     const history = useHistory();
 
 
     const handleSubmit = (event) => {
+
         event.preventDefault();
         onSubmit(event);
         history.push('/success');
+
+
+
+
+
+
+
     };
 
 
@@ -33,6 +42,8 @@ function SiparisOzet({ onSubmit, isValid, totalAmount, counter, setCounter, extr
                 <p className='secimler'><span>Seçimler</span> <span>{extra}tl</span></p>
                 <p className='toplam'><span>Toplam</span> <span>{totalAmount}tl</span></p>
                 <button className='ozet-btn' onClick={handleSubmit} disabled={!isValid} data-cy="submit-button">SİPARİŞ VER</button>
+
+
             </div>
         </section>
     )

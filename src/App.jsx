@@ -45,7 +45,7 @@ function App() {
         </Route>
         <Route exact path="/order">
           <OrderPizza1 data={data} setData={setData} totalAmount={totalAmount} extra={extra}
-            setTotalAmount={setTotalAmount} setExtra={setExtra} counter={counter} setCounter={setCounter} setShouldScroll={setShouldScroll} />
+            setTotalAmount={setTotalAmount} setExtra={setExtra} counter={counter} setCounter={setCounter} setShouldScroll={setShouldScroll} initialValue={initialValue} />
         </Route>
         <Route exact path="/success" >
           <Success1 data={data} totalAmount={totalAmount} extra={extra} />

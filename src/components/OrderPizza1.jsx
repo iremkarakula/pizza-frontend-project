@@ -12,25 +12,30 @@ import Footer from './Footer'
 
 const initialErrors = {
     isim: false,
-    boyut: false,
-    hamur: false,
+    boyut: true,
+    hamur: true,
+    malzeme1: false,
 
 }
 export const errorMessages = {
     isim: "Adınızı en az 3 karakter giriniz",
     boyut: "Boyut seçiniz",
     hamur: "Hamur kalınlığı seçiniz",
+    malzeme1: "En az 4 malzeme seçiniz"
 
 }
 
-function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter, setShouldScroll }) {
+function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter, setShouldScroll, initialValue }) {
     const [dataList, setDataList] = useState([]);
 
 
     const [isValid, setIsValid] = useState(false);
     const [errors, setErrors] = useState(initialErrors);
 
-
+    useEffect(() => {
+        setData(initialValue);
+        setErrors(initialErrors);
+    }, []);
 
     const handleChange = (event) => {
 
@@ -41,7 +46,19 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
             const hasError = value.trim().length < 3;
             setErrors((prevErrors) => ({ ...prevErrors, [name]: hasError }));
         }
+        if (name === 'boyut' || name === 'hamur') {
+            setErrors((prevErrors) => ({ ...prevErrors, [name]: !value }));
+        }
+        if (name === 'malzemeler') {
+            const hasError = value.length < 4;
+            setErrors((prevErrors) => ({ ...prevErrors, [name]: hasError }));
+        }
+
+
     }
+
+
+
 
 
     const handleMalzemeChange = (malzeme) => {
@@ -59,14 +76,17 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
 
         if (!isValid) return;
 
+
         axios.post(" https://reqres.in/api/pizza ", data).then((response) => {
             console.log(response.data);
             setDataList(pre => [...pre, response.data]);
 
-            setData(initialValue);
+
             console.log(dataList)
 
         }).catch((error) => { console.warn(error) })
+
+
     }
 
 
@@ -116,12 +136,12 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
                 </div>
                 <p className='op-text'>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
             </div>
-            <BoyutveHamur onHandleChange={handleChange} />
-            <EkMalzemeler onMalzemeChange={handleMalzemeChange} />
+            <BoyutveHamur onHandleChange={handleChange} errors={errors} errorMessages={errorMessages} />
+            <EkMalzemeler onMalzemeChange={handleMalzemeChange} errors={errors} errorMessages={errorMessages} />
             <Form className='isim-form'>
                 <FormGroup className='isim-formgroup'>
                     <Label for="isim" className='isim-label'>
-                        Ad
+                        Ad<span style={{ color: 'var(--kirmizi)' }}>*</span>
                     </Label>
                     <Input
                         id="isim"
@@ -133,7 +153,7 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
                         className='isim-input'
                         data-cy="isim-input"
                     />
-                    {errors.isim && <FormFeedback >
+                    {errors.isim && <FormFeedback className='isim-fb'>
                         {errorMessages.isim}
                     </FormFeedback>}
                 </FormGroup>
@@ -156,7 +176,7 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
                     />
                 </FormGroup>
             </Form>
-            <SiparisOzet onSubmit={handleSubmit} isValid={isValid} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} />
+            <SiparisOzet onSubmit={handleSubmit} isValid={isValid} counter={counter} setCounter={setCounter} totalAmount={totalAmount} extra={extra} data={data} errorMessages={errorMessages} errors={errors} setIsValid={setIsValid} />
             <Footer />
         </section>
 

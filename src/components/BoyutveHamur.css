@@ -177,3 +177,11 @@ option {
 
 
 }
+
+.hamur-fb,
+.boyut-fb {
+    color: var(--kirmizi);
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: 500;
+}
