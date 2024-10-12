@@ -40,8 +40,9 @@ function EkMalzemeler({ onMalzemeChange, errors, errorMessages }) {
                             value={item}
                             onChange={handleChange}
                             checked={selectedMalzemeler.includes(item)}
-                            // disabled={selectedMalzemeler.length >= 10 && !selectedMalzemeler.includes(item)}
+                            disabled={selectedMalzemeler.length >= 10 && !selectedMalzemeler.includes(item)}
                             data-cy="malzeme-input"
+
 
                         />
                         <Label check for={`${index}`} className='ekmalzemeler-label'>

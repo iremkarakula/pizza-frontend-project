@@ -3,7 +3,8 @@ import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap'
 import './BoyutveHamur.css'
 
 
-
+const hamuroptions = ["Kalın", "Orta", "İnce"];
+const boyutoptions = ["S", "M", "L"]
 export default function BoyutveHamur({ onHandleChange, errors, errorMessages }) {
 
     const handleChange = (event) => {
@@ -20,48 +21,24 @@ export default function BoyutveHamur({ onHandleChange, errors, errorMessages }) 
                     {errorMessages.boyut}
                 </FormFeedback>}
                 <div className='radio-div'>
-                    <FormGroup check className='formgroup-radio'>
-                        <Input
-                            id="radio1"
-                            name="boyut"
-                            type="radio"
-                            value="küçük"
-                            data-cy="boyut-input"
-                            onChange={handleChange}
+                    {boyutoptions.map((boyut, index) =>
+                        <FormGroup check className='formgroup-radio'>
+                            <Input
+                                id={`radio${index}`}
+                                name="boyut"
+                                type="radio"
+                                value={boyut}
+                                data-cy="boyut-input"
+                                onChange={handleChange}
 
-                        />
-                        <Label check for="radio1" className='custom-radio'>
-                            S
-                        </Label>
-                    </FormGroup>
-                    <FormGroup check className='formgroup-radio' >
-                        <Input
-                            id="radio2"
-                            name="boyut"
-                            type="radio"
-                            value="orta"
-                            onChange={handleChange}
-                            data-cy="boyut-input"
+                            />
+                            <Label check for={`radio${index}`} className='custom-radio'>
+                                {boyut}
+                            </Label>
+                        </FormGroup>
+                    )}
 
-                        />
-                        <Label check for="radio2" className='custom-radio'>
-                            M
-                        </Label>
-                    </FormGroup>
-                    <FormGroup check className='formgroup-radio'>
-                        <Input
-                            id="radio3"
-                            name="boyut"
-                            type="radio"
-                            value="büyük"
-                            onChange={handleChange}
-                            data-cy="boyut-input"
 
-                        />
-                        <Label check for="radio3" className='custom-radio'>
-                            L
-                        </Label>
-                    </FormGroup>
                 </div>
 
 
@@ -74,6 +51,7 @@ export default function BoyutveHamur({ onHandleChange, errors, errorMessages }) 
                     {errors.hamur && <FormFeedback className='hamur-fb'>
                         {errorMessages.hamur}
                     </FormFeedback>}
+                    { }
                     <Input
                         id="exampleSelect"
                         name="hamur"
@@ -81,19 +59,15 @@ export default function BoyutveHamur({ onHandleChange, errors, errorMessages }) 
                         onChange={handleChange}
                         data-cy="hamur-input"
                         className='custom-select'
-                    >
-                        <option hidden>
+                    >  <option hidden>
                             --Hamur Kalınlığı Seç --
                         </option>
-                        <option value="kalın">
-                            Kalın
-                        </option>
-                        <option value="orta">
-                            Orta
-                        </option>
-                        <option value="ince">
-                            İnce
-                        </option>
+                        {hamuroptions.map((hamur) => (
+                            <option value={hamur}>
+                                {hamur}
+                            </option>
+                        ))
+                        }
 
                     </Input>
                 </FormGroup>

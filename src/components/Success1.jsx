@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Success.css'
 import Footer from './Footer'
 
 function Success1({ data, extra, totalAmount }) {
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+    }, []);
+
     return (
 
         <header className='success'>

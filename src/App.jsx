@@ -1,11 +1,11 @@
 
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 
 import Home1 from './components/Home1'
 import OrderPizza1 from './components/OrderPizza1'
 import Success1 from './components/Success1'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const initialValue = {
   isim: "",
@@ -20,32 +20,22 @@ function App() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [counter, setCounter] = useState(1);
   const [extra, setExtra] = useState(0);
-  const [shouldScroll, setShouldScroll] = useState(true);
 
-  const ScrollToTop = ({ shouldScroll }) => {
-    const { pathname } = useLocation();
 
-    useEffect(() => {
-      if (shouldScroll) {
-        window.scrollTo(0, 0);
-      }
-    }, [pathname, shouldScroll]);
 
-    return null;
-  };
 
 
   return (
     <div>
 
-      <ScrollToTop shouldScroll={shouldScroll} />
+
       <Switch>
         <Route exact path="/">
           <Home1 />
         </Route>
         <Route exact path="/order">
           <OrderPizza1 data={data} setData={setData} totalAmount={totalAmount} extra={extra}
-            setTotalAmount={setTotalAmount} setExtra={setExtra} counter={counter} setCounter={setCounter} setShouldScroll={setShouldScroll} initialValue={initialValue} />
+            setTotalAmount={setTotalAmount} setExtra={setExtra} counter={counter} setCounter={setCounter} initialValue={initialValue} />
         </Route>
         <Route exact path="/success" >
           <Success1 data={data} totalAmount={totalAmount} extra={extra} />

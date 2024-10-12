@@ -10,6 +10,7 @@ import Footer from './Footer'
 
 
 
+
 const initialErrors = {
     isim: false,
     boyut: true,
@@ -25,7 +26,7 @@ export const errorMessages = {
 
 }
 
-function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter, setShouldScroll, initialValue }) {
+function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExtra, counter, setCounter, initialValue }) {
     const [dataList, setDataList] = useState([]);
 
 
@@ -107,10 +108,13 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
     }, [data.malzemeler, counter])
 
 
+
+
     useEffect(() => {
-        setShouldScroll(false);
-        return () => setShouldScroll(true);
-    }, [setShouldScroll]);
+
+        window.scrollTo(0, 0);
+
+    }, []);
 
 
     return (
@@ -150,8 +154,12 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
                         type="text"
                         value={data.isim}
                         onChange={handleChange}
-                        className='isim-input'
+                        className="isim-input"
+
                         data-cy="isim-input"
+                        invalid={errors.isim}
+
+
                     />
                     {errors.isim && <FormFeedback className='isim-fb'>
                         {errorMessages.isim}
@@ -172,6 +180,7 @@ function OrderPizza1({ data, setData, totalAmount, extra, setTotalAmount, setExt
                         rows='1'
                         value={data.not}
                         onChange={handleChange}
+
 
                     />
                 </FormGroup>
